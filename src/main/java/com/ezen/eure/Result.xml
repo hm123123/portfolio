@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.eure.Service">
+	<!-- 로그인/회원가입 등 시작-->
+	<insert id="insert">
+		insert into join values (join_seq.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8})	
+	</insert>
+	
+	<select id="login" resultType="com.ezen.eure.LoginDTO">
+		select * from join where id=#{param1} and pw=#{param2}
+	</select>
+
+	<select id="login2" resultType="com.ezen.eure.AdminDTO">
+		select * from admin1 where id=#{param1} and pw=#{param2}
+	</select>
+	<!-- 로그인/회원가입 등 끝-->
+	
+	<!-- 1대1문의 시작 -->
+	<insert id="qsinsert">
+		insert into one (num, qlist, title, content, custnum)values (one_seq.nextval, #{param1},#{param2}, #{param3},#{param4})
+	</insert>
+	
+	<select id="qsout"  resultType="com.ezen.eure.OneDTO">
+		select num, title, rdate from one where custnum =#{custnum}
+	</select>
+	
+	<select id="qsdetail"  resultType="com.ezen.eure.OneDTO">
+		select qlist, title, rdate, content, custnum from one where num =#{num}
+	</select>
+	<!-- 1대1문의 끝 -->
+	
+	<!-- 내차팔기, 국산, 수입 시작 -->
+	<select id="noticeid" resultType="com.ezen.eure.AdminDTO">
+		select id from admin1 where id=#{id}
+	</select>
+	<insert id="carsave">insert into car values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},0,#{param11}) </insert>
+
+	<select id="search" resultType="com.ezen.eure.CarDTO">
+		select * from car where carname like '%'|| carname ||'%' 
+	</select>
+	<!-- 내차팔기, 국산, 수입 끝 -->
+	
+	 <!-- 이차어때 시작 -->
+   
+   <insert id="howsave">
+      insert into how(photo,hname,htitle,good,bad,hcontent,score)values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7}) 
+   </insert>
+   
+      <select id="howlistselect" resultType="com.ezen.eure.HowDTO">
+         select * from how
+      </select>
+
+ 	<select id="howdetail" resultType="com.ezen.eure.HowDTO">
+ 		select * from how where hname = #{hname}
+ 	</select>
+   <!-- 이차어때 종료 -->
+</mapper>
