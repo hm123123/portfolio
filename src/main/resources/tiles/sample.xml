@@ -47,6 +47,10 @@
 	<definition name="onedetail" extends="fixbaseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/onedetail.jsp"/>
 	</definition>	
+	
+	<definition name="oneupdate1" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/oneupdate1.jsp"/>
+	</definition>	<!-- 0928추가 -->
 	<!--1대1문의 끝  -->
 	
 	<!-- 차  -->
@@ -54,30 +58,90 @@
 		<put-attribute name="body" value="/WEB-INF/views/carinput.jsp"/>
 	</definition>
 	
-	<definition name="logincar" extends="fixbaseLayout">
-   	 <put-attribute name="body" value="/WEB-INF/views/logincar.jsp"/>
+	<definition name="carout" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/carout.jsp"/>
 	</definition>
+
+	<definition name="carout2" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/carout2.jsp"/>
+	</definition>
+
+	<definition name="carsearch" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/carsearch.jsp"/>
+	</definition>
+
+	<definition name="cardetail" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/cardetail.jsp"/>
+	</definition>
+	
+	<definition name="logincar" extends="fixbaseLayout">
+   	 	<put-attribute name="body" value="/WEB-INF/views/logincar.jsp"/>
+	</definition>
+	
+	<definition name="logincarlist" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/logincarlist.jsp"/>
+	</definition>
+	
+	<definition name="mycarlist" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/mycarlist.jsp"/>
+	</definition>
+	
+	<definition name="cardeletemid" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/cardeletemid.jsp"/>
+	</definition>
+	
+	<definition name="carupdatemid" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/carupdatemid.jsp"/>
+	</definition>
+	<definition name="compare" extends="fixbaseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/compare.jsp"/>
+	</definition>
+	
+   <definition name="sangdam" extends="fixbaseLayout">
+      <put-attribute name="body" value="/WEB-INF/views/sangdam.jsp"/>
+   </definition>
+
+   <definition name="mypage" extends="fixbaseLayout">
+      <put-attribute name="body" value="/WEB-INF/views/mypage.jsp"/>
+   </definition>
 	<!-- 차 끝  -->
 	
 	<!-- 이차어때 시작 -->
-   <definition name="howlist" extends="fixbaseLayout">
-      <put-attribute name="body" value="/WEB-INF/views/howlist.jsp"/>
-   </definition>
    
-   <definition name="adcarinput" extends="fixbaseLayout">
-      <put-attribute name="body" value="/WEB-INF/views/adcarinput.jsp"/>
-   </definition>
-   
-     <definition name="howdetail" extends="fixbaseLayout">
-      <put-attribute name="body" value="/WEB-INF/views/howdetail.jsp"/>
-   </definition>
-   
-    <definition name="loginhow" extends="fixbaseLayout">
-      <put-attribute name="body" value="/WEB-INF/views/loginhow.jsp"/>
-   </definition>
-      <definition name="alert" extends="fixbaseLayout">
-      <put-attribute name="body" value="/WEB-INF/views/alert.jsp"/>
-   </definition>
+<definition name="howlist" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/howlist.jsp"/>
+</definition>
+
+
+<definition name="hosthowlist" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/hosthowlist.jsp"/>
+</definition>
+
+
+<definition name="adcarinput" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/adcarinput.jsp"/>
+</definition>
+
+
+<definition name="howdetail" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/howdetail.jsp"/>
+</definition>
+
+
+<definition name="hosthowdetail" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/hosthowdetail.jsp"/>
+</definition>
+
+
+<definition name="memberhowdetail" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/memberhowdetail.jsp"/>
+</definition>
+
+
+<definition name="loginhow" extends="fixbaseLayout">
+	<put-attribute name="body" value="/WEB-INF/views/loginhow.jsp"/>
+</definition>
+
    <!-- 이차어때 끝 -->
    
    <!-- 공지사항 -->
@@ -90,8 +154,18 @@
     <definition name="hostboard" extends="fixbaseLayout">
      	 <put-attribute name="body" value="/WEB-INF/views/hostboard.jsp"/>
    	</definition>
-
-   	
+ 	<definition name="hostboarddetail" extends="fixbaseLayout">
+     	 <put-attribute name="body" value="/WEB-INF/views/hostboarddetail.jsp"/>
+   	</definition>
+   	 <definition name="hostboarddetail2" extends="fixbaseLayout">
+     	 <put-attribute name="body" value="/WEB-INF/views/hostboarddetail2.jsp"/>
+   	</definition>
+   	 <definition name="hostboardinput1" extends="fixbaseLayout">
+     	 <put-attribute name="body" value="/WEB-INF/views/hostboardinput1.jsp"/>
+   	</definition>
    <!-- 공지사항 끝  -->
-   
+      <!-- 선호차량 -->
+   <definition name="preferout" extends="fixbaseLayout">
+       <put-attribute name="body" value="/WEB-INF/views/preferout.jsp"/>
+   </definition>
  </tiles-definitions>

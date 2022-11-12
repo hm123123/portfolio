@@ -8,62 +8,95 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-	@font-face {
+   @font-face {
     font-family: 'KoPubDotum';
     src: url('../src/fonts/KoPubDotumBold_0.ttf') format('truetype');
    }
    
-   body{
-      width:100%;
-      text-align: center;
-      font-family: 'KoPubDotum';
+   .boardbody{
+      margin:0 auto;
+       width:1280px;
+       font-family: 'KoPubDotum';
+       padding-top: 52px;
    }
-	
-	.boardimg{
-		position:relative;
-	}
-	
-	.txt{
-		width:1280px;
-		margin: 0 auto;
-	}
-	
-	.boardimg .lefttxt{
-		text-align:left;
-		color:#fff;
-		float: left;
-		
-		position:absolute;
-		top:0;
-		
-		line-height:120px;
-	}
-	
+   
+   .boardimg{
+      position:relative;
+   }
+   
+   .txt{
+      width:1280px;
+      margin: 0 auto;
+   }
+   
+   .boardimg .lefttxt{
+      text-align:left;
+      color:#fff;
+      float: left;
+      
+      position:absolute;
+      top:0;
+      
+      line-height:120px;
+   }
+   table{
+   border-collapse: collapse;
+   width:1280px;
+   margin: 0 auto;
+   
+   }
+   th{
+   background-color: #eee;
+    height: 55px; 
+   }
+   td{
+   height: 55px;
+   }
+   .tdtitle{
+   text-align: left;
+   padding-left: 31px;
+   }
+   .page{
+   padding-top: 16px;
+   }
 </style>
 </head>
 <body>
-	
-	<div class="boardimg">
-		<img src="./image/boardimg.jpg" width="1950px;">
-		
-		<div class="txt">
-			<div class="lefttxt">
-				<h1>공지사항호스트보드</h2>
-			</div>
-		</div>
-	</div>
-	<a href="hostboardinput?id=${ndto.id}">글쓰기</a><br>
-	<table border="1" align="left">
-	<tr><th>NO.</th><th>SUBJECT</th><th>NAME</th></tr>
-	<c:forEach items="${nlist }" var="aa">
-	<tr>
-	<td>${aa.nnum }</td>
-	<td>${aa.ncontent }</td>
-	<td>${aa.id}</td>
-	</tr>
-	</c:forEach>
-	</table>
-	
-	
+   <div class="boardimg">
+      <img src="./image/boardimg.jpg" width="1950px;">
+      
+      <div class="txt">
+         <div class="lefttxt">
+            <h1>공지사항</h2>
+         </div>
+      </div>
+   </div>
+   <a style="padding-top: 25px; position: absolute;" href="hostboardinput?id=${ndto.id}">글쓰기</a><br>
+   <div class="boardbody">
+   <table border="1">
+   <tr><th width="90px">번호</th><th>제목</th><th>작성자</th></tr>
+   <c:forEach items="${view }" var="aa">
+   <tr>
+   <td>${aa.nnum }</td>
+    <td class="tdtitle"><a href="hostboarddetail2?nnum=${aa.nnum}">${aa.ntitle}</a></td>
+   <td width="135px">${aa.id}</td>
+   </tr>
+   </c:forEach>
+   </table>
+<!-- 페이징처리 -->
+<div class="page">
+      <c:forEach begin="${paging.startPage }" end="${paging.endPage}" var="p"> 
+         <c:choose>
+            <c:when test="${p == paging.nowPage }">
+                  <!--  현재페이지가 반복횟수랑 똑같으면?? 진하게-->
+               <b>${p}</b>
+            </c:when>   
+            <c:when test="${p != paging.nowPage }">
+               <a href="notice?nowPage=${p}&cntPerPage=${paging.cntPerPage}&id=${ndto.id}">${p}</a>
+            </c:when>   
+         </c:choose>
+      </c:forEach>
+   </div>
+</div>
 </body>
 </html>

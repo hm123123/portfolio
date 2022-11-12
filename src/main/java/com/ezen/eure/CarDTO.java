@@ -1,13 +1,24 @@
 package com.ezen.eure;
 
 public class CarDTO {
-	String carnum, carbrand,carname,fueltype,cyear,color;
+	String carnum, carbrand,carname,fueltype,origin,cyear,color;
 	int km, price;
-	String content, address;
-	int charge,readcnt,custnum;
-	public CarDTO() {
-		super();
+	String content, picture ,picture2, picture3;
+	public String getPicture2() {
+		return picture2;
 	}
+	public void setPicture2(String picture2) {
+		this.picture2 = picture2;
+	}
+	public String getPicture3() {
+		return picture3;
+	}
+	public void setPicture3(String picture3) {
+		this.picture3 = picture3;
+	}
+	int readcnt,custnum;
+	String id;
+	
 	public String getCarnum() {
 		return carnum;
 	}
@@ -31,6 +42,12 @@ public class CarDTO {
 	}
 	public void setFueltype(String fueltype) {
 		this.fueltype = fueltype;
+	}
+	public String getOrigin() {
+		return origin;
+	}
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 	public String getCyear() {
 		return cyear;
@@ -62,17 +79,11 @@ public class CarDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getAddress() {
-		return address;
+	public String getPicture() {
+		return picture;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public int getCharge() {
-		return charge;
-	}
-	public void setCharge(int charge) {
-		this.charge = charge;
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 	public int getReadcnt() {
 		return readcnt;
@@ -86,6 +97,11 @@ public class CarDTO {
 	public void setCustnum(int custnum) {
 		this.custnum = custnum;
 	}
-
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 }

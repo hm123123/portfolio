@@ -73,7 +73,7 @@
 	
 	.write{
 		width: 100%;
-		height:600px;
+		height:655px;
 		border:1.5px solid #ddd;
 		line-height: 60px;
 		margin-bottom: 130px;
@@ -128,6 +128,7 @@
 			<div class="aa">
 				<h3>문의하기</h3> 
 				<a href="qsout?custnum=${member.custnum}"><span>내 문의내역</span></a>
+			<%-- qsout?custnum=${member.custnum} --%>
 			</div>
 			
 			<div class="info">
@@ -146,9 +147,9 @@
 					<h4>제목</h4>&emsp;&emsp;&emsp;
 					<input type="text" name="title">
 				</div>
-				<%-- <div class="custnum">
+				 <div class="custnum">
 					<input type="hidden" name="custnum" value="${member.custnum}" readonly>
-				</div> --%>
+				</div> 
 				<textarea style="width:93.6%; height: 402px;" name="content"></textarea>
 				<br><input type="submit" value="등록"> <input type="button" value="취소" onclick="location.href='index'">
 			</div>

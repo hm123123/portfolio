@@ -1,6 +1,7 @@
 package com.ezen.eure;
 
-public class OneDTO {
+
+public class OneDTO  {
 	int num;
 	String qlist ,title, rdate, content;
 	int custnum;
@@ -40,4 +41,6 @@ public class OneDTO {
 	public void setCustnum(int custnum) {
 		this.custnum = custnum;
 	}
+	
+	
 }

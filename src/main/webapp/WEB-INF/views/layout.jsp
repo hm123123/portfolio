@@ -32,6 +32,7 @@
 		position: fixed;
 		bottom:0px;
 		text-align: left;
+		z-index: 10;
 	} 
 	
 </style>

@@ -182,11 +182,11 @@
          <h1><a href="index"><img src="./image/logo.png"></a></h1>
          <nav>
             <ul class="gnb" >
-               <li><a href="#">국산차</a></li>
-               <li><a href="#">수입차</a></li>
+               <li><a href="carout">국산차</a></li>
+               <li><a href="carout2">수입차</a></li>
                <li><a href="#">사고팔기</a>
                   <ul class="sub">
-                     <li><a href="howlist">이차어때</a></li>
+                            <li><a href="howlist?id=${admin1.id}&memberid=${member.id}">이차어때</a></li>
                      <li><a href="carinput">내차팔기</a></li>
                   </ul>
                </li>
@@ -213,7 +213,7 @@
             </c:choose>   
                 <c:choose>
                <c:when test="${loginstate==true}">
-                  <a href=""><span> ${member.name } 님</span></a>&emsp;
+                  <a href="mypage?id=${member.id }"><span> ${member.name } 님</span></a>&emsp;
                   <a href="logout">로그아웃</a>
                </c:when>
                <c:when test="${adminstate==true}">

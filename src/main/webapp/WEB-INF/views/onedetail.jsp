@@ -34,7 +34,6 @@
 	}
 	
 	.oneinput{
-	
 		width: 1280px;
 		margin: 0 auto;
 		padding-top:30px;
@@ -59,39 +58,31 @@
 		font-size:14px;
 	}
 	
-	.info{
-		width: 100%;
-		height:60px;
-		border:1.5px solid #ddd;
-		line-height: 60px;
-		margin-bottom: 30px;
-	}
-	
-	.info h4{
-		text-align: left;
-		padding-left: 40px;
-	}
 	
 	.write{
 		width: 100%;
 		height:600px;
 		border:1.5px solid #ddd;
 		line-height: 60px;
-		margin-bottom: 130px;
+		margin-bottom: 30px;
 		padding-bottom:30px;
 	}
 	
-	.write .check{
+	.check{
 		border-bottom:1.5px solid #ddd;
 		width:93.6%;
 		margin: 0 auto; 
 		text-align: left;
+		position:relative;
+		padding:30px 0;
 	}
 	
 	
-	.write .check h4{
+	.check h4{
 		text-align: left;
-		display: inline;
+		position: absolute;
+		left:0;
+		top:0;
 	}
 	
 	.write .qatitle{
@@ -100,7 +91,7 @@
 		text-align: left;
 	}
 	
-	.write .qatitle h4{
+	.write .qatitle h3{
 		text-align: left;
 		display:inline;
 	}
@@ -110,9 +101,42 @@
 		width: 1100px;
 		height: 25px;
 	}
+	
+	.date{
+		width:93.6%;
+		margin:0 auto;
+		text-align: left;
+		height:20px;
+		border-bottom: 1.5px solid #ddd;
+		line-height:20px;
+		padding: 10px 0;
+	}	
+	
+	.cont{
+		margin:0 auto;
+		width: 93.6%;
+		text-align: left;
+	}
+	
+	.btn{
+		width:1280px;
+		margin: 0 auto;
+	}
+	.btn a{
+		border :1px solid #ddd;
+		background-color: #eee;
+		padding:5px;
+		font-size:14px;
+	}
+	
+		.allwrap{
+  		height:800px;
+  		margin-bottom: 200px;
+  	}
 </style>
 </head>
 <body>
+<div class="allwrap">
 
 	<div class="callimg">
 		<img src="./image/callimg2.jpg" width="1950px;">
@@ -128,15 +152,25 @@
 		<div class="aa">
 			<h3>내 문의내역</h3> 
 		</div>
+		
 		<div class="write">
 			<div class="check">
-				<h4>${dto.title}</h4>&emsp;&emsp;<br>
-				문의일자: ${dto.rdate} | 문의항목: ${dto.qlist} <br><br>
+				<h3>${dto.title}</h3>
 			 </div>
-			 ${dto.content}
+			 
+			 <div class="date">
+					문의일자: <fmt:parseDate value="${dto.rdate }" var="rdate" pattern="yyyy-MM-dd"/> <fmt:formatDate value="${rdate }" pattern="yyyy.MM.dd"/> | 문의항목: ${dto.qlist} <br><br>
+			 </div>
+			 <div class="cont">
+			  ${dto.content}
+			 </div>
+		</div>
+		</div>
+		<div class="btn">
+		 <a href="qsout2?custnum=${dto.custnum }">목록으로</a>  <a href="onedelete?num=${dto.num }&custnum=${dto.custnum}">삭제</a>  
+		 <a href="oneupdate?num=${dto.num }&custnum=${dto.custnum}">수정</a> 
+		</div>
 	</div>
-		
-		 <a href="qsout2?custnum=${dto.custnum }">목록으로</a> 
 		
 </body>
 </html>

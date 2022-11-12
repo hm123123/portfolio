@@ -4,7 +4,6 @@
 <html>
 <head>
 <script type="text/javascript">
-alert("로그인하러가기");
 function check(){
 	var f = document.form1;	
 	var id1 = /^[a-z0-9]{4,14}$/;
@@ -93,11 +92,11 @@ function check(){
 <title>Insert title here</title>
 </head>
 <body>
-<div class="loginform">
+<div class="loginform">   
 	<div class="maintext">
 	<h1>EureCar</h1>
 	</div>
-	<form name="form1" action="login4?hname=${dto.hname}" method="post" >
+	<form name="form1" action="login4" method="post" >
 	
 				<input type="text" name="id" placeholder="아이디"><br>
 			
@@ -105,7 +104,8 @@ function check(){
 				<div class="idsavememo">
 				<input type="checkbox" name="idsave" id="idsave"> 아이디저장<br>
 				</div>
-				
+				<input type="hidden" name = "hcarnum" value="${hdto.hcarnum }">
+				<input type="hidden" name = "hname" value="${hdto.hname}">
 				<input type="submit" value="로그인" onclick="return check()"><br>
 	</form>
 	<div class="submenu">

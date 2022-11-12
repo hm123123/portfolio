@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+      <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -127,9 +127,44 @@
       border: none;
    }
    
+    .alllist{
+      margin-top:50px;
+   }
+   
+   .list{
+      width:1280px;
+      margin: 0 auto;
+   }
+   
+   .list ul{
+      
+   }
+   
+   .list li{
+       margin: 0 15px 15px 0;
+      /* background-color: #ccc; */
+      border:1px solid #eee;
+      width:1240px;
+      height:80px;
+      
+      float: left;
+      text-align: left;
+      padding: 20px;
+   }
+   
+   .hide{
+      display: none;
+   }
+
+   .cc{
+      position:absolute;
+   
+      
+      z-index:10px;
+   }
 </style>
 <script type="text/javascript">
-
+   
 
 </script>
 </head>
@@ -139,22 +174,22 @@
       
       <div class="txt">
          <div class="lefttxt">
-            <h2>${dto.htitle}</h2>
+            <h2>${hdto.htitle}</h2>
          </div>
       </div>
    </div>
    
    <div class="title">
-      <h3>${dto.hname}</h3>
+      <h3>${hdto.hname}</h3>
    </div>
    <div class="con">
       <div class="aa">
          <h4 class="left">평가내용</h4>
-         <h4 class="right">${dto.score}</h4>
+         <h4 class="right">[별점] ${hdto.score}</h4>
       </div>
       
       <div class="bb">
-         <h5>${dto.hcontent}</h5>
+         <h5>${hdto.hcontent}</h5>
       </div>
    </div>
    
@@ -163,13 +198,30 @@
       
       <div class="replybox">
          <form action="replysave">
-            <textarea maxlength="300" placeholder=" 고객님의 평가를 남겨주세요"  name="rcontent" ></textarea>
-            <input type="button" value="등록" class="rebtn" onclick="location.href='howlog?hname=${dto.hname}'">
+            <textarea maxlength="300" placeholder=" 고객님의 평가를 남겨주세요"  name="rcontent" ></textarea><br><br><br><br><br>
+            <div class="cc">
+            <input type="hidden" name="id" value="${ldto.id}" readonly>
+            <input type="hidden" name="hname" value="${hdto.hname}" readonly>
+            <input type="hidden" name="hcarnum" value="${hdto.hcarnum}" readonly>
+            </div>
+            <input type="submit" value="등록" class="rebtn" >
          </form>
       </div>
-   
-   
+      
    </div>
+   
+   <!-- 댓글달기 리스트 -->
+    <div class="alllist">
+         <ul class="list">
+         <c:forEach items="${list}" var="aa">
+         <li>
+               <span>${aa.id}</span><br>
+               <span>${aa.rdate}</span><br>
+               <span>${aa.rcontent}</span><br>
+         </li>
+         </c:forEach>
+         </ul>
+      </div>
    
 </body>
 </html>

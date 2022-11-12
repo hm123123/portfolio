@@ -64,6 +64,7 @@
       padding: 20px;
    }
    
+   
    /* .list li:hover{
       background-color:rgba(0,0,0,0.5);
    } */
@@ -79,27 +80,41 @@
    }
    
    .good{
-      width:20px;
-      height:10px;
+      width:35px;
+      height:20px;
+      line-height:20px;
       padding:2px 3px;;
       color:#fff;
       background-color: navy;
+      margin-right:10px;
+      margin-bottom:5px;
+      
+       display:inline-block;
+        transform: skew(-0.1deg);
    }
    
    .bad{
-      width:20px;
-      height:10px;
+       transform: skew(-0.1deg);
+     width:35px;
+      height:20px;
+       line-height:20px;
       padding:2px 3px;;
       color:#fff;
       background-color: #222;
+       margin-right:10px;
+       margin-bottom:5px;
+      
+      display:inline-block;
    }
    
    .photo img{
-      width:100%;
+   width: 100%;
+   height: 201px;
    }
    
    .score{
       color: navy;
+      margin:25px 0;
    }
 
 </style>
@@ -114,23 +129,24 @@
          </div>
       </div>
    </div>
-   
       <div class="alllist">
          <ul class="list">
          
          <c:forEach items="${list}" var="aa">
          <li>
-         <a href="howdetail" class="linkcar">
-         <a href="howdetail?hname=${aa.hname}" class="linkcar">
-               <span class="carname">${aa.hname}</span><br>
-               <span class="good">장점</span>${aa.good}<br>
-               <span class="bad">단점</span>${aa.bad}<br>
-               <span class="score">${aa.score}</span>
+         <a href="howdetail?hname=${aa.hname}&id=${ldto.id}&hcarnum=${aa.hcarnum}" class="linkcar">
+               <h3 style=" transform: skew(-0.1deg);">${aa.hname}</h3><br>
+               <h4 class="good">장점 </h4>${aa.good}<br>
+               <h4 class="bad">단점 </h4>${aa.bad}<br>
+               <h3 class="score">${aa.score}</h3>
                <span class="photo"><img src="./image/${aa.photo}"></span><br>
+               <input type="hidden" name="id" value = "${ldto.id }">
+               <input type="hidden" name="hcarnum" value = "${aa.hcarnum }">
          </a>
          </li>
          </c:forEach>
          </ul>
       </div>
+       
 </body>
 </html>

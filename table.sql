@@ -5,9 +5,10 @@ DROP TABLE notice CASCADE CONSTRAINTS;
 DROP TABLE admin1 CASCADE CONSTRAINTS;
 DROP TABLE car CASCADE CONSTRAINTS;
 DROP TABLE how CASCADE CONSTRAINTS;
+DROP TABLE sangdam CASCADE CONSTRAINTS;
+DROP TABLE join CASCADE CONSTRAINTS;
 DROP TABLE one CASCADE CONSTRAINTS;
 DROP TABLE reply CASCADE CONSTRAINTS;
-DROP TABLE join CASCADE CONSTRAINTS;
 
 
 
@@ -34,6 +35,9 @@ CREATE TABLE car
 	km number(10,0),
 	price number(19,0),
 	content varchar2(1000),
+	picture varchar2(1000),
+	picture2 varchar2(1000),
+	picture3 varchar2(1000),
 	readcnt number(10,0),
 	custnum number(10,0) NOT NULL,
 	id varchar2(30) NOT NULL
@@ -44,11 +48,13 @@ CREATE TABLE how
 (
 	photo varchar2(1000),
 	hname varchar2(100),
-	htitle varchar2(30),
+	htitle varchar2(50),
 	good varchar2(200),
 	bad varchar2(200),
-	hcontent varchar2(1500),
-	score varchar2(10)
+	hcontent varchar2(3000),
+	score varchar2(10),
+	hcarnum number(10) NOT NULL,
+	PRIMARY KEY (hcarnum)
 );
 
 
@@ -85,8 +91,7 @@ CREATE TABLE one
 	title varchar2(100),
 	rdate date DEFAULT SYSDATE,
 	content varchar2(1000),
-	custnum number(10,0) NOT NULL,
-	id varchar2(30) NOT NULL
+	custnum number(10,0) NOT NULL
 );
 
 
@@ -94,6 +99,21 @@ CREATE TABLE reply
 (
 	rcontent varchar2(300),
 	rdate date DEFAULT SYSDATE,
+	id varchar2(30) NOT NULL,
+	hcarnum number(10)
+);
+
+
+CREATE TABLE sangdam
+(
+	carnum varchar2(50),
+	carbrand varchar2(50),
+	carname varchar2(50),
+	price number(10,0),
+	picture varchar2(1000),
+	name varchar2(50),
+	address varchar2(200),
+	tel varchar2(50),
 	custnum number(10,0) NOT NULL,
 	id varchar2(30) NOT NULL
 );
@@ -114,13 +134,7 @@ ALTER TABLE car
 ;
 
 
-ALTER TABLE one
-	ADD FOREIGN KEY (custnum, id)
-	REFERENCES join (custnum, id)
-;
-
-
-ALTER TABLE reply
+ALTER TABLE sangdam
 	ADD FOREIGN KEY (custnum, id)
 	REFERENCES join (custnum, id)
 ;

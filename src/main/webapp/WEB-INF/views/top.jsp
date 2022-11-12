@@ -16,7 +16,40 @@
          },function(){
             $(this).find("ul.sub").stop().slideUp();
          });
-      })
+         
+         
+      /* $(".slide>ul.slide_all>li").eq(0).siblings().css("left","-1950px");
+        
+          var slideI=0;
+         setInterval(function(){
+               
+               if(slideI<2){
+                  slideI++;
+               }else{
+                  slideI=0;
+               }
+               $(".slide>ul.slide_all>li").eq(slideI).siblings().animate({"left":"1950px"});
+               $(".slide>ul.slide_all>li").eq(slideI).animate({"left":"0"},500);
+               
+            },3000); */
+            
+         $(".slide>ul.slide_all>li").eq(0).siblings().hide();
+            
+            var slideI=0;
+            setInterval(function(){
+               
+               if(slideI<2){
+                  slideI++;
+               }else{
+                  slideI=0;
+               }
+               $(".slide>ul.slide_all>li").eq(slideI).siblings().fadeOut("6000");
+               $(".slide>ul.slide_all>li").eq(slideI).fadeIn("6000");
+               
+            },3000);
+            
+      });
+     
   </script>
 <style type="text/css">
 @charset "UTF-8";
@@ -52,8 +85,6 @@
       height:70px;
       margin:0 auto;
       position:relative;
-      z-index:10;
-     
    }
    
    header h1 {
@@ -147,8 +178,6 @@
    
    .container {
      width:100%;
-     position: relative;
-     top:0;
    }
    
    .text-block {
@@ -159,6 +188,7 @@
       color: white;
       background: rgb(0,0,0);
       background: rgba(0,0,0,0.5);
+      z-index:10;
    }
    .search{
       position: absolute;
@@ -223,47 +253,93 @@
       font-size: 15px;
       font-weight: bold;
    }
+   
+   .slide{
+         margin:0 auto;
+         width:1950px;
+         height:590px;
+         position:relative;
+       /* overflow: hidden; */
+   }
+   
+   .slide>ul.slide_all{
+         width:100%;
+         height:590px;
+   }
+   
+   .slide>ul.slide_all>li{
+         width:100%;
+         height:590px;
+         position:absolute;
+         top:0;
+         left:0;
+   }
+   
+/*     .slide>ul.slide_all>li:nth-child(1){
+         width:100%;
+         height:590px;
+         position:absolute;
+         top:0;
+         left:0;
+   }
+   
+    .slide>ul.slide_all>li:nth-child(2){
+         width:100%;
+         height:590px;
+         position:absolute;
+         top:0;
+         left:1950px;
+         overflow: hidden;
+   }
+   
+     .slide>ul.slide_all>li:nth-child(3){
+         width:100%;
+         height:590px;
+         position:absolute;
+         top:0;
+         left:1950px;
+   } */
+ 
+ 
 </style>
 </head>
 
 <body>
-<div class="container">
-  <img src="./image/mainimg3.jpg" alt="Nature" width="1950px;">
-  <div class="text-block">
 <div class="wrap">
+
+<div class="text-block">
    <header>
       <h1><a href="index"><img src="./image/logo.png"></a></h1>
          <div class="search">
-            <form>
+            <form action="carsearch">
                <div class="searchtext"><h3>당신이 원하는 차는 유레카에서</h3></div>
-                  <input class="sbox" type="text" name="search">
+                  <input class="sbox" type="text" name="keyword">
                   <input class="ssubmit" type="submit" value="검색"><br>
                   <button># 연령대별</button><button># 인기많은</button><button># 주행거리</button>
             </form>
            </div>
          <nav>
             <ul class="gnb" >
-               <li><a href="#">국산차</a></li>
-               <li><a href="#">수입차</a></li>
+               <li><a href="carout">국산차</a></li>
+               <li><a href="carout2">수입차</a></li>
                <li><a href="#">사고팔기</a>
                   <ul class="sub">
-                     <li><a href="howlist">이차어때</a></li>
+                     <li><a href="howlist?id=${admin1.id}&memberid=${member.id}">이차어때</a></li>
                      <li><a href="carinput">내차팔기</a></li>
                   </ul>
                </li>
                <li><a href="#">고객센터</a>
                   <ul class="sub">
                      <li><a href="qs">1:1문의</a></li>
-                     <li><a href="notice?id=${admin1.id}">공지사항</a></li>
+                     <li><a href="notice?id=${admin1.id }">공지사항</a></li>
                   </ul>
                </li>
                
-      
             
                <li class="log">
                <ul class="login">
                
-                        <c:set var ="result" value="${param.result }"/>
+           <c:set var ="result" value="${param.result }"/>
             <c:choose>
                <c:when test="${result=='loginfail' }">
                   <script type="text/javascript">
@@ -276,7 +352,7 @@
             
                 <c:choose>
                <c:when test="${loginstate==true}">
-                  <a href=""><span> ${member.name } 님</span></a>&emsp;
+                  <a href="mypage?id=${member.id }"><span> ${member.name } 님</span></a>&emsp;
                   <a href="logout">로그아웃</a>
                </c:when>
                <c:when test="${adminstate==true}">
@@ -295,10 +371,31 @@
          </nav>
       </header>
    </div>
+   <div class="slide">
+      <ul class="slide_all">
+         <li><a href="#"><img src="./image/mainimg3.jpg" alt="Nature" width="1950px;"></a></li>
+           <li><a href="#"><img src="./image/mainimg2.jpg" alt="Nature" width="1950px;"></a></li>
+           <li><a href="#"><img src="./image/mainimg.jpg" alt="Nature" width="1950px;"></a></li>
+        </ul>
+    </div>
   </div>
-
-</div>
-
-
-   
+  <script type="text/javascript">
+ /*  var slideCount = $(".slide>ul.slide_all>li").length;
+     var currentIndex =0;
+     
+     var slidePosition;
+     
+     setInterval(function(){
+        
+        if(currentIndex <2){
+           currentIndex++;   
+        }else{
+           currentIndex =0;
+        }
+        
+        slidePosition =currentIndex *(-1950)+"px";
+        $(".slide>ul.slide_all>li").animate({left:slidePosition},400);
+     },3000); */
+  </script>
+   </body>
 </html>
